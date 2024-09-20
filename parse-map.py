@@ -18,9 +18,10 @@ class OSMHandler(osmium.SimpleHandler):
 if __name__ == "__main__":
     h = OSMHandler()
     print("Processing data...")
+    # Note: the referenced file must be downloaded before running this script.
     h.apply_file("FI-202409120200.osm.pbf", locations=True, idx="flex_mem")
     print()
     print("Writing JSON...")
-    with open("varuskunnat.json", "w") as f:
+    with open("base-data.json", "w") as f:
         json.dump(h.results, f)
     print("Finished.")

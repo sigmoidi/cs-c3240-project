@@ -108,7 +108,7 @@ def downloader(name_prefix: str, num_samples: int, bases: list[tuple[list, bbox_
                 print(colored("Sample download failed.", "red"))
 
 if __name__ == "__main__":
-    bases = load_and_process_bases("varuskunnat.json")
+    bases = load_and_process_bases("base-data.json")
     num_threads = 8
     iolock = threading.Lock()
     print(f"Spawning {num_threads} threads...")
