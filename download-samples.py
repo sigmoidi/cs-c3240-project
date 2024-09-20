@@ -80,16 +80,6 @@ def process_images(images: list[image_t]) -> list[image_t] | None:
         return None
     return images
 
-def download_sample(filename_prefix: str, bases: list[tuple[list, bbox_t]]) -> bool:
-    images, percent = get_images_and_percentage(bases)
-    images = process_images(images)
-    if images is not None:
-        for image, type in zip(images, "AB"):
-            filename = f".\\samples\\{filename_prefix}.{type}.{100 * percent:.0f}.png"
-            image.save(filename)
-        return True
-    return False
-
 def downloader(name_prefix: str, num_samples: int, bases: list[tuple[list, bbox_t]], iolock: threading.Lock):
     count = 0
     while count < num_samples:
